@@ -1,0 +1,716 @@
+@import './colors';
+@import './components';
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.6rem;
+	background-color: $main-color;
+
+	hr {
+		border: 1px solid $button-color;
+	}
+}
+
+.nav {
+	position: fixed;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 5%;
+	border-bottom: 2px solid $text-color;
+	background-color: $main-color;
+	overflow: hidden;
+	z-index: 100;
+	font-size: 1.2rem;
+
+	&__items {
+		display: none;
+
+		.nav__item {
+			padding: 0.5em;
+
+			text-decoration: none;
+			text-transform: uppercase;
+
+			font-weight: bold;
+			color: $text-color;
+			transition: color 0.3s;
+
+			&:hover {
+				color: $button-color;
+			}
+		}
+	}
+
+	&__icons {
+		display: none;
+		position: fixed;
+		right: 10px;
+		padding: 1em;
+
+		font-size: 2rem;
+		overflow: hidden;
+
+		&-one,
+		&-two {
+			padding: 0.5em;
+			color: $button-color;
+			cursor: pointer;
+			transition: 0.2s;
+
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+	}
+
+	.nav__btn {
+		position: fixed;
+		right: 5px;
+		padding: 1em;
+		font-size: 2.4rem;
+		background: none;
+		border: 1px solid transparent;
+		color: $button-color;
+		cursor: pointer;
+	}
+}
+
+// HEADER
+.header {
+	.hero__shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.4);
+		z-index: -10;
+	}
+}
+.hero__img {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 82vh;
+	background-image: url('../img/header_main.jpeg');
+
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	z-index: 0;
+
+	.hero__text {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		font-size: 0.8rem;
+		height: 100%;
+		padding: 1em;
+		text-align: center;
+		letter-spacing: 0.1em;
+
+		color: $main-color;
+	}
+	.hero__heading {
+		font-size: 1.6rem;
+	}
+	.hero__p {
+		padding: 2em;
+		font-size: 1.2rem;
+	}
+}
+
+// AboutUS
+
+.aboutUs {
+	&__box {
+		display: flex;
+		flex-direction: column;
+		margin: 2em 0;
+
+		&-img {
+			width: 100%;
+			
+		}
+	}
+	.aboutUs__img {
+		margin-bottom: 0;
+		height: 50vh;
+		width: 100%;
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	&__box-text {
+		margin-top: 1em;
+		font-size: 1.1rem;
+	}
+	.aboutUs__title {
+		font-size: 1.6rem;
+		color: $text-color;
+	}
+	.aboutUs__text {
+		margin-top: 1em;
+		color: $text-color;
+		.bold-text {
+			font-weight: 600;
+		}
+	}
+}
+
+.interlude__img {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
+	padding: 10em 2em;
+	text-align: center;
+	text-transform: uppercase;
+	background-image: url('../img/apples-693971_1920.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	overflow: hidden;
+	letter-spacing: 2px;
+	color: $main-color;
+
+	&-shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		overflow: hidden;
+	}
+}
+.interlude__text {
+	z-index: 1;
+	&-title {
+		margin-bottom: 1em;
+		font-size: 1.5rem;
+	}
+	&-p {
+		font-size: 1.2rem;
+		font-weight: 500;
+	}
+}
+
+// PRODUCTS
+
+.products__cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	overflow: hidden;
+}
+.products {
+	&__card {
+		position: relative;
+		margin: 1em 0;
+		padding: 1em;
+		width: 300px;
+		height: 400px;
+		color: $main-color;
+		text-align: center;
+		perspective: 1000px;
+		overflow: hidden;
+
+		&:hover {
+			.products__card-img {
+				transform: rotateY(180deg);
+				opacity: 0;
+			}
+			.products__card-info:hover {
+				transform: rotateY(0deg);
+				opacity: 1;
+			}
+		}
+
+		&-img {
+			position: relative;
+			height: 100%;
+			border-radius: 8px;
+			background-size: cover;
+			background-position: center;
+			transition: transform 1s, opacity 1s;
+
+			.shadow {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 8px;
+				overflow: hidden;
+			}
+
+			&--first {
+				background-image: url('../img/product3.jpg');
+			}
+			&--second {
+				background-image: url('../img/jablko-gala-eko.webp');
+			}
+			&--three {
+				background-image: url('../img/product2.jpg');
+			}
+			&--four {
+				background-image: url('../img/product1.jpg');
+			}
+			&--five {
+				background-image: url('../img/product4.jpg');
+			}
+			&--sixs {
+				background-image: url('../img/jablko-red-jonaprince-eko.webp');
+			}
+			&--seven {
+				background-image: url('../img/chipsy-jablkowe-eko.webp');
+			}
+			&--eight {
+				background-image: url('../img/susz-owocowy-niewedzony.webp');
+			}
+
+			&-title {
+				position: absolute;
+				padding: 2em;
+				top: 0.3em;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				overflow: hidden;
+				font-size: 2rem;
+				text-align: center;
+				z-index: 1;
+			}
+			&-text {
+				position: absolute;
+				text-align: center;
+				bottom: 20px;
+				margin: 0 20px;
+
+				font-size: 1.4rem;
+				overflow: hidden;
+
+				i {
+					margin-right: 0.3em;
+				}
+				z-index: 1;
+			}
+		}
+		&-info {
+			position: absolute;
+			margin: 1em;
+			padding: 1em;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+			background-image: $light-blue-gradient;
+			border-radius: 8px;
+			opacity: 0;
+			transform: rotateY(45deg);
+			transition: transform 1s, opacity 1s;
+
+			&-title {
+				position: absolute;
+				width: 100%;
+				padding: 2em;
+				top: 0.3em;
+				left: 50%;
+				transform: translate(-50%);
+				text-align: center;
+				overflow: hidden;
+				font-size: 2rem;
+				text-align: center;
+				z-index: 1;
+			}
+			&-text {
+				text-align: center;
+				margin: 0 auto;
+				width: 70%;
+				font-size: 1.4rem;
+				color: $main-color;
+			}
+		}
+	}
+}
+
+.interludeTwo__img {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
+	padding: 10em 2em;
+	text-align: center;
+	text-transform: uppercase;
+	background-image: url('../img/apples-1873078_1920.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	overflow: hidden;
+	letter-spacing: 2px;
+	color: $main-color;
+
+	&-shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		overflow: hidden;
+	}
+}
+.interludeTwo__text {
+	z-index: 1;
+	&-title {
+		margin-bottom: 1em;
+		font-size: 1.5rem;
+	}
+	&-p {
+		font-size: 1.2rem;
+		font-weight: 500;
+	}
+}
+
+// TU JESTEŚMY
+.hereWeAreP {
+	margin-bottom: 2em;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	text-align: center;
+	color: $text-color;
+	letter-spacing: 2px;
+}
+.hereWaAre {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	&__box {
+		position: relative;
+		padding: 0em;
+		margin: 1em;
+		height: 400px;
+		width: 350px;
+		border: none;
+		border-radius: 8px;
+
+		&-img {
+			background-size: cover;
+			background-position: center;
+
+			overflow: hidden;
+			height: 50%;
+			width: 100%;
+
+			border-radius: 8px 8px 0 0;
+		}
+		.one {
+			background-image: url('../img/tujestesmy1.jpg');
+		}
+		.two {
+			background-image: url('../img/AboutUs2.jpg');
+		}
+		.three {
+			background-image: url('../img/tujestesmy1.jpg');
+		}
+
+		&-text {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 1em;
+			height: 50%;
+			text-align: center;
+
+			background-color: $text-color;
+			border-radius: 0px 0px 8px 8px;
+			color: $main-color;
+		}
+		&-title {
+			font-size: 1.8rem;
+		}
+		&-p {
+			font-size: 0.8em;
+		}
+		&-btn {
+			position: absolute;
+			bottom: 1em;
+			padding: 0.2em 1em;
+			width: 80%;
+			font-size: 1.8rem;
+			background-color: $button-color;
+			border: none;
+			border-radius: 8px;
+			transition: transform 0.3s;
+
+			&:hover {
+				transform: scale(1.05);
+			}
+
+			a {
+				padding: 0 2em;
+				text-decoration: none;
+				text-transform: uppercase;
+				color: $main-color;
+				font-size: 1.4rem;
+				letter-spacing: 2px;
+			}
+		}
+	}
+}
+
+.interludeThree__img {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
+	padding: 10em 2em;
+	text-align: center;
+	text-transform: uppercase;
+	background-image: url('../img/apples-5594129_1920.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	overflow: hidden;
+	letter-spacing: 2px;
+	color: $main-color;
+
+	&-shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		overflow: hidden;
+	}
+}
+.interludeThree__text {
+	z-index: 1;
+	&-title {
+		margin-bottom: 1em;
+		font-size: 1.5rem;
+	}
+	&-p {
+		font-size: 1.2rem;
+		font-weight: 500;
+	}
+}
+
+// GALERIA
+
+.carousel-item {
+	img {
+		height: 75vh;
+		background-size: cover;
+		background-position: center;
+		border-radius: 8px;
+	}
+}
+
+// INTERLUDE FOur
+
+.contact__img {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10em 2em;
+	text-align: center;
+	text-transform: uppercase;
+	background-image: url('../img/interlude4Big.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	overflow: hidden;
+	letter-spacing: 2px;
+	color: $main-color;
+
+	&-shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.8);
+		overflow: hidden;
+	}
+
+	.contact__text {
+		z-index: 1;
+		h3 {
+			margin: 1.6em;
+			font-size: 2rem;
+		}
+		p {
+			font-size: 1rem;
+		}
+	}
+	.social-media {
+		a {
+			margin: 0.5em;
+			font-size: 2.4rem;
+			color: $button-color;
+
+			i:hover {
+				transform: scale(1.4);
+				transition: transform 0.3s;
+			}
+		}
+	}
+}
+
+.footer {
+	background-color: $main-color;
+	color: $text-color;
+}
+
+// MEDIA
+
+@media (min-width: 576px) {
+	.interlude {
+		&__text {
+			&-title {
+				font-size: 2.2rem;
+			}
+			&-p {
+				font-size: 1.6rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.hero__text {
+		.hero__heading {
+			font-size: 2.4rem;
+		}
+		.hero__p {
+			font-size: 2rem;
+		}
+	}
+
+	.nav__btn {
+		display: none;
+	}
+	.nav__items {
+		display: block;
+	}
+	.nav__icons {
+		display: block;
+	}
+
+	.aboutUs__box-right {
+		display: flex;
+		justify-content: end;
+		order: 1;
+	}
+	.aboutUs {
+		&__box {
+			flex-direction: row;
+			justify-content: space-between;
+			margin: 1em;
+		}
+
+		&__img {
+			margin-top: 2em;
+			height: 500px;
+			width: 100%;
+		}
+
+		&__box-text {
+			padding: 2em 4em;
+			width: 80%;
+			font-size: 1.4rem;
+		}
+
+		.aboutUs__title {
+			font-size: 1.6rem;
+			color: $text-color;
+		}
+		.aboutUs__text {
+			margin-top: 1em;
+			color: $text-color;
+			.bold-text {
+				font-weight: 600;
+			}
+		}
+	}
+
+	.interlude,
+	.interludeTwo,
+	.interludeThree {
+		&__text {
+			&-title {
+				font-size: 2.6rem;
+			}
+			&-p {
+				font-size: 2rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.nav__items {
+		.nav__item {
+			padding: 0 3em;
+		}
+	}
+	.hero__text {
+		.hero__heading {
+			font-size: 2.8rem;
+		}
+		.hero__p {
+			font-size: 2.2rem;
+		}
+	}
+	.section-heading {
+		font-size: 3.6rem;
+		font-weight: 550;
+		letter-spacing: 4px;
+	}
+
+	.interlude {
+		&__text {
+			&-title {
+				font-size: 2.8rem;
+			}
+			&-p {
+				font-size: 2.2rem;
+			}
+		}
+	}
+	.contact__img {
+		.contact__text {
+			h3 {
+				font-size: 2rem;
+			}
+			p {
+				font-size: 1.2rem;
+			}
+		}
+		.social-media {
+			i {
+				font-size: 3rem;
+			}
+		}
+	}
+}
